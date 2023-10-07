@@ -97,10 +97,10 @@ function getUniqueClasses(collection) {
 function orderClassesByTitleAndLevel(collection) {
   const organizedClass = _.orderBy(collection, ['title', 'level'], ['asc', 'desc']);
 
-  const result = organizedClass.map(classObj => ({
-    title: classObj.title,
-    instructor: classObj.instructor,
-    level: classObj.level,
+  const result = organizedClass.map(obj => ({
+    title: obj.title,
+    instructor: obj.instructor,
+    level: obj.level,
   }));
 
   return result;
