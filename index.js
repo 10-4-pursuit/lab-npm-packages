@@ -9,28 +9,57 @@ const newMember = require("./data/new-member");
  * @param {Object} obj -
  * @return {number} The number of keys in the object
  */
-function numberOfKeys(obj) {}
+function numberOfKeys(obj) {
+
+  let totalKeys = 0
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      totalKeys++;
+    }
+  }
+  return totalKeys;
+}
 
 /**
  * Remove the falsy values in a numbers array and return the sum
  * @param {numbers[]} array - An array of numbers that can also contain some falsy values
  * @return {number} The sum of the numbers in an array
  */
-function sumNumbers(array) {}
+function sumNumbers(array) {
+// store truthy values in new variable
+ const filteredArray = array.filter((value) => !!value);
+// use reduce to add all numbers
+  const sum = filteredArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
+  return sum;
+
+
+}
 /**
  * Convert a two-dimensional array of new member data (each inner array having two values: the first being the key, the second being the value) into an object
  * @param {Array[]} member -
  * @return {number} The sum of the numbers in an array
  */
-function newMemberArrayToObject(member) {}
+function newMemberArrayToObject(member) {
+  let groupedClasses = {}
+
+  collection.forEach((yogaClass) => { 
+    // get the key value from yogaClass
+    const [key, value] = yogaClass
+    // add key-value to object groupedClasses
+    groupedClasses[key] = value
+  })
+  return groupedClasses
+}
 
 /**
  * Return an array of objects that grouped by instructors from the classes array of objects
  * @param {Object[]} collection - an array of yoga class objects
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
-function groupClassByInstructor(collection) {}
+function groupClassByInstructor(collection) {
+ 
+}
 
 /**
  * Remove the age key from the members array of object
