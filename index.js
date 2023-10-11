@@ -43,7 +43,7 @@ function sumNumbers(array) {
 function newMemberArrayToObject(member) {
   let groupedClasses = {}
 
-  collection.forEach((yogaClass) => { 
+  member.forEach((yogaClass) => { 
     // get the key value from yogaClass
     const [key, value] = yogaClass
     // add key-value to object groupedClasses
@@ -58,7 +58,21 @@ function newMemberArrayToObject(member) {
  * @return {Object[]} - the reshaped collection where the classes are grouped by instructor name
  */
 function groupClassByInstructor(collection) {
- 
+const groupedClasses ={}
+collection.forEach((yogaClass) => {
+// get instructor name
+const instructor = yogaClass.instructor
+ // if instructor is not in groupedClass object, make new array
+if (!groupedClasses[instructor]) {
+  groupedClasses[instructor] = []
+}
+
+// add current classes that belong to instructor to their array
+groupedClasses[instructor].push(yogaClass)
+
+})
+ //return groupedClasses
+ return groupedClasses
 }
 
 /**
